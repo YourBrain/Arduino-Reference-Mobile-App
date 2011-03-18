@@ -1,64 +1,39 @@
-// this sets the background color of the master UIView (when there are no windows/tab groups on it)
-Titanium.UI.setBackgroundColor('#000');
-
-// create tab group
 var tabGroup = Titanium.UI.createTabGroup();
 
+var tab, win;
 
-//
-// create base UI tab and root window
-//
-var win1 = Titanium.UI.createWindow({  
-    title:'Tab 1',
-    backgroundColor:'#fff'
+win = Titanium.UI.createWindow({  
+    title: 'Atmega Pin Map',
+    url:   'mapping.js'
 });
-var tab1 = Titanium.UI.createTab({  
-    icon:'KS_nav_views.png',
-    title:'Tab 1',
-    window:win1
+tab = Titanium.UI.createTab({  
+    icon:  'KS_nav_ui.png',
+    title: 'Pin Map',
+    window: win
 });
+tabGroup.addTab(tab);  
 
-var label1 = Titanium.UI.createLabel({
-	color:'#999',
-	text:'I am Window 1',
-	font:{fontSize:20,fontFamily:'Helvetica Neue'},
-	textAlign:'center',
-	width:'auto'
+win = Titanium.UI.createWindow({  
+    title: 'Dorkboard Layout',
+    url:   'dorkboard-layout.js'
 });
-
-win1.add(label1);
-
-//
-// create controls tab and root window
-//
-var win2 = Titanium.UI.createWindow({  
-    title:'Tab 2',
-    backgroundColor:'#fff'
+tab = Titanium.UI.createTab({  
+    icon:  'KS_nav_ui.png',
+    title: 'Dorkboard Layout',
+    window: win
 });
-var tab2 = Titanium.UI.createTab({  
-    icon:'KS_nav_ui.png',
-    title:'Tab 2',
-    window:win2
+tabGroup.addTab(tab);  
+
+win = Titanium.UI.createWindow({  
+    title: 'Dorkboard Schematic',
+    url:   'dorkboard-schematic.js'
 });
-
-var label2 = Titanium.UI.createLabel({
-	color:'#999',
-	text:'I am Window 2',
-	font:{fontSize:20,fontFamily:'Helvetica Neue'},
-	textAlign:'center',
-	width:'auto'
+tab = Titanium.UI.createTab({  
+    icon:  'KS_nav_ui.png',
+    title: 'Dorkboard Schematic',
+    window: win
 });
-
-win2.add(label2);
-
+tabGroup.addTab(tab);  
 
 
-//
-//  add tabs
-//
-tabGroup.addTab(tab1);  
-tabGroup.addTab(tab2);  
-
-
-// open tab group
 tabGroup.open();
